@@ -1,0 +1,65 @@
+
+# TOP 5 SAMPLE PRODUCTS THAT WERE FREQUENTLY CO_PURCHASED(BOUGHT IN PAIRS)
+
+#db.transactions.aggregate([
+  // 1) Keep only the items array
+  { $project: { items: 1 } },
+
+  // 2) Extract only product_id list from items
+  { $project: { product_ids: "$items.product_id" } },
+
+  // 3) Remove duplicates inside the same transaction (avoid counting same product twice)
+  { $project: { product_ids: { $setUnion: ["$product_ids", []] } } },
+
+  // 4) Generate all unique pairs (x < y) per transaction
+  {
+    $project: {
+      pairs: {
+        $reduce: {
+          input: { $range: [0, { $size: "$product_ids" }] },
+          initialValue: [],
+          in: {
+            $concatArrays: [
+              "$$value",
+              {
+                $map: {
+                  input: { $range: [{ $add: ["$$this", 1] }, { $size: "$product_ids" }] },
+                  as: "j",
+                  in: [
+                    { $arrayElemAt: ["$product_ids", "$$this"] },
+                    { $arrayElemAt: ["$product_ids", "$$j"] }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+
+  // 5) Unwind pairs so each pair becomes one row
+  { $unwind: "$pairs" },
+
+  // 6) Count frequency of each pair across all transactions
+  {
+    $group: {
+      _id: { product_x: { $arrayElemAt: ["$pairs", 0] }, product_y: { $arrayElemAt: ["$pairs", 1] } },
+      co_purchase_count: { $sum: 1 }
+    }
+  },
+
+  // 7) Format output
+  {
+    $project: {
+      _id: 0,
+      product_x: "$_id.product_x",
+      product_y: "$_id.product_y",
+      co_purchase_count: 1
+    }
+  },
+
+  // 8) Sort and take Top N
+  { $sort: { co_purchase_count: -1 } },
+  { $limit: 50 }
+])
