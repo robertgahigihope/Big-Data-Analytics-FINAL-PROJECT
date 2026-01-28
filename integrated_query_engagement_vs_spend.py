@@ -12,7 +12,6 @@
 #   3) integrated_metrics.csv
 #   4) integrated_summary.txt
 #
-# 8GB-friendly: streams HBase scan and only keeps per-user aggregates (10k users).
 
 import argparse
 import os
@@ -264,3 +263,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
