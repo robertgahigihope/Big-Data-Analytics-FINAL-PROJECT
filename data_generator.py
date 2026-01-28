@@ -1,4 +1,4 @@
-# dataset_generator_8gb.py
+
 import json
 import random
 import datetime
@@ -9,19 +9,18 @@ from faker import Faker
 
 fake = Faker()
 
-# --- Configuration (8GB-friendly defaults) ---
 NUM_USERS = 10000
 NUM_PRODUCTS = 5000
 NUM_CATEGORIES = 25
 
-# ✅ Reduced from lecturer's huge values for laptop safety
-NUM_TRANSACTIONS = 100000     # was 500000
-NUM_SESSIONS = 300000        # was 2000000
+# ✅ Reduced for safety purpose of my 8GB RAM laptop
+NUM_TRANSACTIONS = 100000     # they were 500000
+NUM_SESSIONS = 300000        # they were 2000000
 
 TIMESPAN_DAYS = 90
-MAX_ITERATIONS = (NUM_SESSIONS + NUM_TRANSACTIONS) * 3  # fail-safe (slightly relaxed)
+MAX_ITERATIONS = (NUM_SESSIONS + NUM_TRANSACTIONS) * 3  
 
-# ✅ Sessions written in chunks
+# ✅ Sessions in chunks
 CHUNK_SIZE = 30000  # sessions per file (sessions_0.json, sessions_1.json, ...)
 
 # --- Initialization ---
@@ -429,6 +428,7 @@ Dataset generation complete!
 - Remaining products: {sum(p['current_stock'] for p in inventory.products.values()):,}
 - Session files: sessions_0.json ... sessions_{chunk_index-1}.json
 """)
+
 
 
 
