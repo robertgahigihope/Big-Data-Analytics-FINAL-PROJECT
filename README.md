@@ -1,6 +1,8 @@
 # Big-Data-Analytics-FINAL-PROJECT
 # E-commercebigdata analytics system 
 
+- **NOTE**: For dataset used in the project is found on the branch of **Master**, not **Main** to view it, therefore you should click **Main** on the top-left and choose **Master**. Thanks
+
 # Project Overview
 Modern e-commerce platforms generate different types of data: products, customers, purchases, and browsing sessions. A single database system often struggles to handle all these efficiently.
 
@@ -27,7 +29,7 @@ while an integrated cross-system analytical query combines HBase engagement metr
 - Apache Spark
 - Python
 - PySpark
-- 
+
 # Repository Structure
 Main files in this repository include:
 
@@ -36,6 +38,7 @@ Main files in this repository include:
 - **integrated_query_engagement_vs_spend.py** : Cross-system analytics.
 - **plots_from_spark_outputs.py** : Visualization scripts.
 - **integratedplots_query.py** :visualization for integrated analytics.
+
 
 These scripts together build, process, and analyze the dataset across systems.
 
