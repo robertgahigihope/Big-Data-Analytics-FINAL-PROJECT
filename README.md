@@ -1,7 +1,8 @@
 # Big-Data-Analytics-FINAL-PROJECT
 # E-commercebigdata analytics system 
 
-- **NOTE**: For dataset used in this project is found on the branch of **Master**, not **Main** to view it, therefore you should click **Main** on the top-left and choose **Master** it is named as **dataset.7z**. Thanks
+- **NOTE**: For dataset used in this project is found on the branch of **Master**, not **Main** to view it, therefore you should click **Main** on the top-left and choose **Master** it is named as **Dataset.7z**. 
+Thanks.
 
 # Project Overview
 Modern e-commerce platforms generate different types of data: products, customers, purchases, and browsing sessions. A single database system often struggles to handle all these efficiently.
@@ -13,7 +14,7 @@ We combine:
 - **HBase** for large session logs,
 - **Apache Spark** for large-scale analytics processing.
 
-The goal is to show how **polyglot persistence** (using multiple databases) improves performance and scalability in real systems.
+The goal is to show how **polyglot persistence** (using multiple databases in one system) improves performance and scalability in real systems.
 
 # Abstract
 Modern e-commerce platforms generate heterogeneous data such as product catalogs, customer profiles, purchase transactions, and high-frequency browsing sessions. A single database technology often struggles to efficiently handle all these workloads including flexible document storage, heavy write throughput logs, and large-scale analytics.
