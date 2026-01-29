@@ -1,7 +1,7 @@
 # Big-Data-Analytics-FINAL-PROJECT
 # E-commercebigdata analytics system 
 
-- **NOTE**: For dataset used in the project is found on the branch of **Master**, not **Main** to view it, therefore you should click **Main** on the top-left and choose **Master**. Thanks
+- **NOTE**: For dataset used in this project is found on the branch of **Master**, not **Main** to view it, therefore you should click **Main** on the top-left and choose **Master** it is named as **dataset.7z**. Thanks
 
 # Project Overview
 Modern e-commerce platforms generate different types of data: products, customers, purchases, and browsing sessions. A single database system often struggles to handle all these efficiently.
