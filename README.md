@@ -9,8 +9,9 @@ Modern e-commerce platforms generate different types of data: products, customer
 
 This project demonstrates how **multiple database technologies** can work together to process and analyze e-commerce data effectively.
 
-We combine:
--**MongoDB** for business data storage,
+I combined:
+
+- **MongoDB** for business data storage,
 - **HBase** for large session logs,
 - **Apache Spark** for large-scale analytics processing.
 
